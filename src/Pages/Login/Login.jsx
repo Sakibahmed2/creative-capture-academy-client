@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -32,6 +33,7 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <input className='custom-btn' type="submit" value="Sing up" />
                                 </div>
+                                <SocialLogin />
                             </form>
                         </div>
                         <div className="text-center md:w-1/2 lg:text-left">
@@ -39,6 +41,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
+               
             </div>
         </div>
     );

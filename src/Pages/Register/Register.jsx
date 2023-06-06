@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 // import Swal from 'sweetalert2';
 
 
@@ -85,6 +86,7 @@ const Register = () => {
                                 <div className="form-control mt-6">
                                     <input className='custom-btn' type="submit" value="Sing up" />
                                 </div>
+                                <SocialLogin />
                             </form>
                         </div>
                         <div className="text-center md:w-1/2 lg:text-left">
