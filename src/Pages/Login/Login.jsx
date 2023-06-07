@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext)
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data =>{
         console.log(data);
+        signIn(data.email, data.password)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     } 
 
     return (
@@ -33,7 +44,7 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input className='custom-btn' type="submit" value="Sing up" />
+                                    <input className='custom-btn' type="submit" value="Login" />
                                 </div>
                                 <SocialLogin />
                             </form>
