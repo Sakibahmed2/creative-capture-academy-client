@@ -6,6 +6,9 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 const Login = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+    const onSubmit = data =>{
+        console.log(data);
+    } 
 
     return (
         <div>
@@ -13,7 +16,7 @@ const Login = () => {
                 <div className="hero min-h-screen ">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
-                            <form className="card-body">
+                            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -24,8 +27,7 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" {...register("password", { required: true, minLength: 6, maxLength: 20 })} name='password' placeholder="password" className="input input-bordered" />
-                                    {errors.password && <span className='text-xs mt-1 text-red-600'>Password must be 6 letter</span>}
+                                    <input type="text" {...register("password", { required: true})} name='password' placeholder="password" className="input input-bordered" />
                                     <label className="label">
                                         <Link to='/register' className="btn-link link link-hover">Create an account ?</Link>
                                     </label>

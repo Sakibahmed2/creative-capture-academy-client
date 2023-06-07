@@ -1,18 +1,36 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
-// import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 
 const Register = () => {
-    // const { createUser, updateUser } = useContext(AuthContext)
+
+    const { createUser, updateUserProfile } = useContext(AuthContext)
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    // const navigate = useNavigate()
 
     const onSubmit = data => {
 
+        console.log(data);
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+
+
+                console.log(loggedUser)
+
+                    updateUserProfile(data.name, data.photo)
+                        .then(() => { })
+                        .catch(error => {
+                            console.log(error);
+                        })
+                })
+                .catch(error =>{
+                    console.log(error);
+            })
     }
 
     // const onSubmit = data => {
@@ -77,10 +95,16 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" {...register("password", { required: true, minLength: 6, maxLength: 20 })} name='password' placeholder="password" className="input input-bordered" />
-                                    {errors.password && <span className='text-xs mt-1 text-red-600'>Password must be 6 letter</span>}
+                                    <input type="password"  {...register("password", {
+                                        required: true,
+                                        minLength: 6,
+                                        // pattern: /^[A-Za-z]+$/ 
+                                    })} placeholder="password" className="input input-bordered" />
+                                    {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                    {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                    {/* {errors.password?.type === 'pattern' && <p className="text-red-600">Password don't have any capital or spacial character</p>} */}
                                     <label className="label">
-                                        <Link to='/login' className="btn-link link link-hover">Alredy have a account ?</Link>
+                                        <Link to='/login' className="btn-link link link-hover">Already have an account ?</Link>
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
