@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { FaTrashAlt, FaUserShield } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
 
@@ -11,9 +12,48 @@ const ManageUsers = () => {
     })
 
 
+    const handleMakeAdmin = user => {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        icon: 'success',
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+
+    const handleMakeInstructor = user => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        icon: 'success',
+                        title: `${user.name} is an Instructor Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+
     return (
-        <div className="w-full">
-            <h3 className="text-3xl font-semibold my-4">Total Users: {users.length}</h3>
+        <div className="w-10/12 mx-auto ">
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
@@ -22,7 +62,8 @@ const ManageUsers = () => {
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>Make admin</th>
+                            <th>Make instructor</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -33,14 +74,12 @@ const ManageUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'admin' ? 'admin' :
-                                    <>
-                                        <button onClick={() => handleMakeAdmin(user)} className="btn w-24 bg-orange-600 text-xs text-white">Make admin</button>
-
-                                        <button onClick={() => handleMakeAdmin(user)} className="custom-btn btn uppercase w-24  text-xs ml-2 text-white">Make instructor</button>
-
-                                        
-                                    </>
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn w-24 bg-orange-600 text-xs text-white">Make admin</button>
                                 }</td>
+
+                                <td>
+                                    {user.role === 'instructor' ? 'Instructor' : <button onClick={() => handleMakeInstructor(user)} className="custom-btn btn uppercase w-24  text-xs ml-2 text-white">Make instructor</button>}
+                                </td>
                                 <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
                             </tr>)
                         }

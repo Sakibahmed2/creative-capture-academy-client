@@ -54,7 +54,7 @@ const Dashboard = () => {
 
                         <li><NavLink to='/'> <FaHome /> Home</NavLink></li>
                         <li><NavLink to='/classes'> <FaBook /> Classes</NavLink></li>
-                        <li><NavLink to='/classes'> <FaChalkboardTeacher /> INstructor</NavLink></li>
+                        <li><NavLink to='/classes'> <FaChalkboardTeacher /> Instructor</NavLink></li>
                         
 
                     </ul>
