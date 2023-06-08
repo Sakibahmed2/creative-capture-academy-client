@@ -1,8 +1,14 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import {FaBook, FaClipboardList, FaHome, FaUsers, FaChalkboardTeacher } from "react-icons/fa";
 
 
 const Dashboard = () => {
+
+    const { user } = useContext(AuthContext)
+
+    const isAdmin = true;
 
 
     return (
@@ -14,13 +20,43 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     <Outlet />
                 </div>
-                <div className="drawer-side bg-rose-400">
+                <div className="drawer-side bg-emerald-600">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full text-base-content">
+                    <ul className="menu p-4 w-80  ">
                         {/* Sidebar content here */}
 
+                        <div className='text-white text-center mt-8 mb-8'>
+                            <h1 className='md:text-3xl  font-extrabold font-abc md:top-0 top-6 relative'>C C A</h1>
+                            <span className='relative top-0 right-15 opacity-0 md:opacity-100 '>Creative Capture Academy</span>
+                        </div>
+
+
+                        {
+                            // Admin 
+                            isAdmin ? <>
+
+                                <li><NavLink to='dashboard/manageclasses'> <FaClipboardList /> Manage Classes</NavLink></li>
+
+                                <li><NavLink to='dashboard/manageusers'> <FaUsers /> Manage Users</NavLink></li>
+
+                            </> :
+
+
+                                // Instructor 
+                                isInstructor ? <> instructro</> :
+
+                                    // Student
+
+                                    <>student</>
+                        }
+
+                        <div className='divider'></div>
+
+                        <li><NavLink to='/'> <FaHome /> Home</NavLink></li>
+                        <li><NavLink to='/classes'> <FaBook /> Classes</NavLink></li>
+                        <li><NavLink to='/classes'> <FaChalkboardTeacher /> INstructor</NavLink></li>
                         
-                        
+
                     </ul>
 
                 </div>

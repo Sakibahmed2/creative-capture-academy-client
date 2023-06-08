@@ -1,11 +1,11 @@
 import React from 'react';
 
-const AdminHome = () => {
+const ManageUsers = () => {
     return (
         <div>
-            <h2>Hello</h2>
+            
         </div>
     );
 };
 
-export default AdminHome;
+export default ManageUsers;
