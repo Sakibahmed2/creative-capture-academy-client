@@ -22,14 +22,27 @@ const Register = () => {
 
                 console.log(loggedUser)
 
-                    updateUserProfile(data.name, data.photo)
-                        .then(() => { })
-                        .catch(error => {
-                            console.log(error);
+                updateUserProfile(data.name, data.photo)
+                    .then(() => {
+                        const saveUser = { name: loggedUser.displayName, email: loggedUser.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
                         })
-                })
-                .catch(error =>{
-                    console.log(error);
+                            .then(res => res.json())
+                            .then(() => {
+
+                            })
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
+            .catch(error => {
+                console.log(error);
             })
     }
 

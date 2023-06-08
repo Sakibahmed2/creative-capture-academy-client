@@ -22,7 +22,7 @@ const SocialLogin = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                      
+
                     })
             })
     }
