@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../../Provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
-
+    const navigate = useNavigate();
 
     const { googleSignIn } = useContext(AuthContext);
 
@@ -22,7 +23,7 @@ const SocialLogin = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-
+                        navigate('/')
                     })
             })
     }

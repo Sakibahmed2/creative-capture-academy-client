@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import {FaBook, FaClipboardList, FaHome, FaUsers, FaChalkboardTeacher } from "react-icons/fa";
+import { FaBook, FaClipboardList, FaHome, FaUsers, FaChalkboardTeacher } from "react-icons/fa";
+import { ImBook, ImBooks } from "react-icons/im";
+import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
 
 
 const Dashboard = () => {
 
     const { user } = useContext(AuthContext)
 
-    const isAdmin = true;
-
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     return (
         <div>
@@ -43,7 +46,13 @@ const Dashboard = () => {
 
 
                                 // Instructor 
-                                isInstructor ? <> instructro</> :
+                                isInstructor ? <>
+                                    <li><NavLink to='dashboard/manageusers'> <ImBooks /> My Classes</NavLink></li>
+
+                                    <li><NavLink to='dashboard/addaclass'> <ImBook /> Add a class</NavLink></li>
+
+
+                                </> :
 
                                     // Student
 
@@ -55,7 +64,7 @@ const Dashboard = () => {
                         <li><NavLink to='/'> <FaHome /> Home</NavLink></li>
                         <li><NavLink to='/classes'> <FaBook /> Classes</NavLink></li>
                         <li><NavLink to='/classes'> <FaChalkboardTeacher /> Instructor</NavLink></li>
-                        
+
 
                     </ul>
 
