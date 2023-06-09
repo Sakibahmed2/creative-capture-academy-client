@@ -32,7 +32,8 @@ const AddClass = () => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
                     const { name, price, instructorName, instructorEmail, availableSeats } = data;
-                    const newClass = { name, price: parseFloat(price), instructorName, instructorEmail, image: imgURL, availableSeats }
+                    const newClass = { name, price: parseFloat(price), instructorName, instructorEmail, image: imgURL, availableSeats, status: 'pending' }
+                    console.log(newClass);
                     fetch('http://localhost:5000/classes', {
                         method: 'POST',
                         headers: {
@@ -43,7 +44,7 @@ const AddClass = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log(data);
-                            if (data.data.insertedId) {
+                            if (data.insertedId) {
                                 reset();
                                 Swal.fire({
                                     icon: 'success',

@@ -47,7 +47,7 @@ const Dashboard = () => {
 
                                 // Instructor 
                                 isInstructor ? <>
-                                    <li><NavLink to='dashboard/manageusers'> <ImBooks /> My Classes</NavLink></li>
+                                    <li><NavLink to='dashboard/instructorclass'> <ImBooks /> My Classes</NavLink></li>
 
                                     <li><NavLink to='dashboard/addaclass'> <ImBook /> Add a class</NavLink></li>
 
