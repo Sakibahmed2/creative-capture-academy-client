@@ -5,7 +5,7 @@ import ClassesCard from './ClassesCard';
 const ManageClasses = () => {
 
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
-        const res = await fetch('http://localhost:5000/classes')
+        const res = await fetch('https://creative-capturea-academy.vercel.app/classes')
         return res.json();
     })
 

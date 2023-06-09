@@ -11,7 +11,7 @@ const Classs = ({ classs }) => {
         console.log(classs);
         if (user && user.email) {
             const cartClasss = { classsId: _id, name, image, price, email: user.email }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://creative-capturea-academy.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

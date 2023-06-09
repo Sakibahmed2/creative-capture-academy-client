@@ -9,7 +9,7 @@ const InstructorClass = () => {
     const [instructorClass, setInstructorClass] = useState()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/instructor-classes?email=${user?.email}`)
+        fetch(`https://creative-capturea-academy.vercel.app/instructor-classes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setInstructorClass(data)

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const axiosSecure = axios.create({
-    baseURL: 'https://http://localhost:5000',
+    baseURL: 'https://https://creative-capturea-academy.vercel.app',
 });
 
 const useAxiosSecure = () => {

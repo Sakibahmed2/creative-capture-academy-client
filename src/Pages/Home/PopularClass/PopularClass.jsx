@@ -13,7 +13,7 @@ const PopularClass = () => {
     const classLimit = 6;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/classslimit?limit=${classLimit}`)
+        fetch(`https://creative-capturea-academy.vercel.app/classslimit?limit=${classLimit}`)
             .then(res => res.json())
             .then(data => {
                 setPopularClass(data)

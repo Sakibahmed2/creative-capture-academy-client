@@ -7,7 +7,7 @@ const PopularInstructor = () => {
     const instructorLimit = 6;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/instructorlimit?limit=1`)
+        fetch(`https://creative-capturea-academy.vercel.app/instructorlimit?limit=1`)
         .then(res => res.json())
         .then(data =>{
             setInstructors(data)

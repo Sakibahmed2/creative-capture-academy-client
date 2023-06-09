@@ -34,7 +34,7 @@ const AddClass = () => {
                     const { name, price, instructorName, instructorEmail, availableSeats } = data;
                     const newClass = { name, price: parseFloat(price), instructorName, instructorEmail, image: imgURL, availableSeats, status: 'pending' }
                     console.log(newClass);
-                    fetch('http://localhost:5000/classes', {
+                    fetch('https://creative-capturea-academy.vercel.app/classes', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
