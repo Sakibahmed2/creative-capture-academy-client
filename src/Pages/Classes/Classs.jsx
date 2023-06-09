@@ -28,10 +28,9 @@ const Classs = ({ classs }) => {
 
     return (
         <div>
-
-            <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img class="w-full" src={image} alt="Sunset in the mountains" />
-                <div class="px-6 py-4">
+            <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                <img className="w-full" src={image} alt="Sunset in the mountains" />
+                <div className="px-6 py-4">
                     <h2 className="card-title text-2xl">{name}</h2>
                     <div className='mt-4'>
                         <p>Instructorname : {instructorName}</p>
@@ -43,7 +42,6 @@ const Classs = ({ classs }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
