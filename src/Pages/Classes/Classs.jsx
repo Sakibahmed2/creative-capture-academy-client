@@ -28,18 +28,22 @@ const Classs = ({ classs }) => {
 
     return (
         <div>
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-                <figure><img className='w-96' src={image} alt="Album" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
-                    <p>Instructorname : {instructorName}</p>
-                    <p>available Seats : {availableSeats}</p>
-                    <p>Price : {price}</p>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <img class="w-full" src={image} alt="Sunset in the mountains" />
+                <div class="px-6 py-4">
+                    <h2 className="card-title text-2xl">{name}</h2>
+                    <div className='mt-4'>
+                        <p>Instructorname : {instructorName}</p>
+                        <p>available Seats : {availableSeats}</p>
+                        <p>Price : {price}</p>
+                    </div>
                     <div className="card-actions justify-end">
-                        <button onClick={() => handleAddToCart(classs)} className="btn btn-primary">Listen</button>
+                        <button onClick={() => handleAddToCart(classs)} className="custom-btn">Select</button>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };

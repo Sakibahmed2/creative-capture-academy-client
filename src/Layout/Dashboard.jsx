@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import { FaBook, FaClipboardList, FaHome, FaUsers, FaChalkboardTeacher } from "react-icons/fa";
+import { FaBook, FaClipboardList, FaHome, FaUsers, FaChalkboardTeacher, FaListAlt, FaList } from "react-icons/fa";
 import { ImBook, ImBooks } from "react-icons/im";
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
@@ -56,7 +56,18 @@ const Dashboard = () => {
 
                                     // Student
 
-                                    <>student</>
+                                    <>
+                                        <li>
+                                            <NavLink to='dashboard/myclasses'>
+                                                <FaListAlt /> My Selected Classes
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to='dashboard/enrolledclasses'>
+                                                <FaList /> My Enrolled Classes
+                                            </NavLink>
+                                        </li>
+                                    </>
                         }
 
                         <div className='divider'></div>

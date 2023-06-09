@@ -13,6 +13,8 @@ import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses"
 import ErrorPage from "../Pages/ErrorPages/ErrorPage";
 import AddClass from "../Pages/Dashboard/Instructors/AddClass/AddClass";
 import InstructorClass from "../Pages/Dashboard/Instructors/InstructorClass/InstructorClass";
+import MyClasses from "../Pages/Dashboard/Student/MyClasses/MyClasses";
+import EnrolledClasses from "../Pages/Dashboard/Student/EnrolledClasses/EnrolledClasses";
 
 
 const router = createBrowserRouter([
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Main />,
         errorElement: <ErrorPage />,
-        children:[
+        children: [
             {
                 path: '/',
                 element: <Home />
@@ -67,7 +69,19 @@ const router = createBrowserRouter([
             {
                 path: 'dashboard/instructorclass',
                 element: <InstructorClass />
-            }
+            },
+
+
+
+            // Student routes 
+            {
+                path: 'dashboard/myclasses',
+                element: <MyClasses />
+            },
+            {
+                path: 'dashboard/enrolledclasses',
+                element: <EnrolledClasses />
+            },
         ]
     }
 ]);

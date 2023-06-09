@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../Provider/AuthProvider';
-import InsClassTable from './InsClassTable';
 import { FaTrashAlt } from 'react-icons/fa';
+import { FiSettings } from "react-icons/fi";
 
 const InstructorClass = () => {
 
@@ -9,7 +9,7 @@ const InstructorClass = () => {
     const [instructorClass, setInstructorClass] = useState()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/instructor-classes?email=sakibb@gmail.com`)
+        fetch(`http://localhost:5000/instructor-classes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setInstructorClass(data)
@@ -19,7 +19,7 @@ const InstructorClass = () => {
     console.log(instructorClass);
 
     return (
-        <div>
+        <div className='w-10/12 mx-auto'>
             <div className="overflow-x-auto ">
                 <table className="table table-lg table-zebra">
                     {/* head */}
@@ -41,8 +41,8 @@ const InstructorClass = () => {
                                 <td>{classs?.status}</td>
                                 <td>{}</td>
                                 <td>
-                                    <button className='bg-red-600 text-white py-4 px-4 rounded-md'>
-                                        <FaTrashAlt />
+                                    <button className='bg-slate-600 text-lg text-white py-4 px-4 rounded-md'>
+                                        <FiSettings />
                                     </button>
                                 </td>
                             </tr>)
