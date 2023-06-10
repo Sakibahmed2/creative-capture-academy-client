@@ -3,7 +3,20 @@ import React from 'react';
 const ClassesCard = ({ classs }) => {
     console.log(classs);
 
-    const { _id, name, image, instructorName, instructorEmail, price, availableSeats } = classs || {};
+    const { _id, name, image, instructorName, instructorEmail, price, availableSeats, status } = classs || {};
+
+    const handleApprove = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/classes/permission/${id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
+
+
 
     return (
         <div>
@@ -21,10 +34,10 @@ const ClassesCard = ({ classs }) => {
                             <p>Price : {price}</p>
                         </div>
                     </div>
-                    <div className="card-actions">
-                        <button className="custom-btn">Approve</button>
-                        <button className="custom-btn">Deny </button>
-                        <button className="custom-btn">Send feedback</button>
+                    <div className="card-actions w-96 mx-auto mt-4">
+                        <button onClick={() => handleApprove(_id)} className="custom-btn btn btn-sm" >Approve</button>
+                        <button className="custom-btn btn btn-sm">Deny </button>
+                        <button className="custom-btn btn btn-sm">Feedback</button>
                     </div>
                 </div>
             </div>

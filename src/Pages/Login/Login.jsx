@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
@@ -6,6 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
+    const [show, setShow] = useState(false)
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,6 +37,11 @@ const Login = () => {
             })
     }
 
+
+    const handleShow = () =>{
+        setShow(!show)
+    }
+
     return (
         <div>
             <div>
@@ -53,7 +59,10 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" {...register("password", { required: true })} name='password' placeholder="password" className="input input-bordered" />
+                                    <input type={show ? "text" : "password"} {...register("password", { required: true })} name='password' placeholder="password" className="input input-bordered" />
+                                    <button onClick={handleShow} className='relative -top-9 left-32 font-semibold'>
+                                        {show ? 'Hide' : 'Show'}
+                                    </button>
                                     <label className="label">
                                         <Link to='/register' className="btn-link link link-hover">Create an account ?</Link>
                                     </label>

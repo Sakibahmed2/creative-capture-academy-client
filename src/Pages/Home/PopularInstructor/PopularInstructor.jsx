@@ -3,6 +3,8 @@ import SectionTitle from '../../../Components/SectionTitle';
 import ShowAll from '../../../Components/ShowAll';
 import InstructorsCard from '../../../Components/InstructorsCard';
 
+
+
 const PopularInstructor = () => {
     const [instrutors, setInstructors] = useState()
     const instructorLimit = 6;

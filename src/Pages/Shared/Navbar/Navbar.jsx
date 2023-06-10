@@ -12,7 +12,7 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors </Link></li>
         <li><Link to='/classes'>Classes</Link></li>
-        <li><Link to='/dashboard '>Dashboard </Link></li>
+        {user && <li><Link to='/dashboard '>Dashboard </Link></li>}
     </>
 
     return (
@@ -41,13 +41,12 @@ const Navbar = () => {
             <div className="navbar-end">
 
 
-                {user ?
+                {user &&
                     <div className="avatar">
                         <div className="w-12 rounded-full border-2 border-gray-500">
                             <img src={user?.photoURL} />
                         </div>
-                    </div> :
-                    <span className='text-xl  rounded-full p-2 text-white bg-slate-800'><FaUser /></span>
+                    </div> 
                 }
 
                 {user ?

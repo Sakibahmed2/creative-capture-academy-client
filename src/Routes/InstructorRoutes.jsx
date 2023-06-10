@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import useInstructor from "../hooks/useInstructor";
 
 
-const InstructorRoutes = () => {
+const InstructorRoutes = ({children}) => {
     const { user, loading } = useContext(AuthContext);
     const [isInstructor, isInstructorLoading] = useInstructor();
     const location = useLocation();
@@ -13,7 +13,7 @@ const InstructorRoutes = () => {
         return <span className="loading loading-spinner"></span>
     }
 
-    if (user && isInstructor) {
+    if (isInstructor) {
         return children;
     }
     return <Navigate to="/" state={{ from: location }} replace></Navigate>
