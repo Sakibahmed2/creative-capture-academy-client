@@ -6,7 +6,7 @@ const Instructors = () => {
     const [instructors, setInstructors] = useState()
 
     useEffect(() => {
-        fetch('http://localhost:5000/allinstructor')
+        fetch('https://creative-capturea-academy.vercel.app/allinstructor')
         .then(res => res.json())
         .then(data =>{
             setInstructors(data)

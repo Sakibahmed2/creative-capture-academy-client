@@ -29,7 +29,7 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
 
                         <div className='text-white text-center mt-8 mb-8'>
-                            <h1 className='md:text-3xl  font-extrabold font-abc md:top-0 top-6 relative'>C C A</h1>
+                            <h1 className='md:text-4xl  font-extrabold font-abc md:top-0 top-6 relative custom-font '>C C A</h1>
                             <span className='relative top-0 right-15 opacity-0 md:opacity-100 '>Creative Capture Academy</span>
                         </div>
 

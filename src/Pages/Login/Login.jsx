@@ -1,25 +1,40 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const onSubmit = data =>{
+    const onSubmit = data => {
         console.log(data);
         signIn(data.email, data.password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch(error =>{
-            console.log(error);
-        })
-    } 
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                Swal.fire({
+                    title: 'User Login Successfully.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     return (
         <div>
@@ -38,7 +53,7 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" {...register("password", { required: true})} name='password' placeholder="password" className="input input-bordered" />
+                                    <input type="text" {...register("password", { required: true })} name='password' placeholder="password" className="input input-bordered" />
                                     <label className="label">
                                         <Link to='/register' className="btn-link link link-hover">Create an account ?</Link>
                                     </label>
@@ -54,7 +69,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     );
