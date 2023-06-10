@@ -8,7 +8,7 @@ const MyClasses = () => {
     const [myClass, setMyClass] = useState()
 
     useEffect(() => {
-        fetch(`https://creative-capturea-academy.vercel.app/carts?email=salman@khan.com`)
+        fetch(`https://creative-capturea-academy.vercel.app/carts?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyClass(data)

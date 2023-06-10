@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Classs = ({ classs }) => {
 
@@ -8,7 +9,6 @@ const Classs = ({ classs }) => {
     const { _id, instructorName, availableSeats, image, price, name } = classs || {}
 
     const handleAddToCart = classs => {
-        console.log(classs);
         if (user && user.email) {
             const cartClasss = { classsId: _id, name, image, price, email: user.email }
             fetch('https://creative-capturea-academy.vercel.app/carts', {
@@ -20,7 +20,14 @@ const Classs = ({ classs }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    if (data.insertedId) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Class added successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
                 })
         }
 

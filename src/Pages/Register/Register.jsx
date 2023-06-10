@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -7,7 +7,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const Register = () => {
-
+    const navigate = useNavigate()
     const { createUser, updateUserProfile } = useContext(AuthContext)
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -34,7 +34,7 @@ const Register = () => {
                         })
                             .then(res => res.json())
                             .then(() => {
-
+                                navigate('/')
                             })
                     })
                     .catch(error => {
