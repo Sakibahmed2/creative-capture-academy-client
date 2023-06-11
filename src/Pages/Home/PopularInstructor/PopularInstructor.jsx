@@ -7,10 +7,9 @@ import InstructorsCard from '../../../Components/InstructorsCard';
 
 const PopularInstructor = () => {
     const [instrutors, setInstructors] = useState()
-    const instructorLimit = 6;
 
     useEffect(() => {
-        fetch(`https://creative-capturea-academy.vercel.app/instructorlimit?limit=${instructorLimit}`)
+        fetch(`https://creative-capturea-academy.vercel.app/instructorlimit?limit=6`)
         .then(res => res.json())
         .then(data =>{
             setInstructors(data)

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
-import errorFile from '../../assets/80698-404-error.json'
+import errorFile from '../../assets/95560-error-404.json'
 import Lottie from "lottie-react";
 
 const ErrorPage = () => {
@@ -9,10 +9,12 @@ const ErrorPage = () => {
 
 
     return (
-        <div className='h-96'>
-            <Lottie animationData={errorFile} ></Lottie>
+        <div className=' flex justify-center items-center'>
+            <Lottie 
+            animationData={errorFile}
+            ></Lottie>
             <Link to='/'>
-                <button className='absolute top-32 custom-btn'>Go back to home</button>
+                <button className='relative top-52 md:top-[250px] right-40 md:right-80 btn bg-sky-500 text-white'>Go back to home</button>
             </Link>
         </div>
     );

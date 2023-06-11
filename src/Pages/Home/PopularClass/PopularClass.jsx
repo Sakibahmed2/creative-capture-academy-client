@@ -3,17 +3,14 @@ import SectionTitle from '../../../Components/SectionTitle';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PopularClassCard from './PopularClassCard';
-import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
 import ShowAll from '../../../Components/ShowAll';
 
 const PopularClass = () => {
 
     const [popularClass, setPopularClass] = useState()
-    const classLimit = 6;
 
     useEffect(() => {
-        fetch(`https://creative-capturea-academy.vercel.app/classslimit?limit=${classLimit}`)
+        fetch(`https://creative-capturea-academy.vercel.app/classslimit?limit=6`)
             .then(res => res.json())
             .then(data => {
                 setPopularClass(data)
