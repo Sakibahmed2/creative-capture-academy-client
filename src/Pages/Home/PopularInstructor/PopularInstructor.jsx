@@ -18,7 +18,7 @@ const PopularInstructor = () => {
     },[])
     return (
         <div className=' mt-20'>
-            <SectionTitle title={'Popular instructor'} />
+            <SectionTitle title={'Popular instructors'} />
 
             <div className='grid md:grid-cols-3 gap-6 mt-8 w-10/12 mx-auto'>
                 {

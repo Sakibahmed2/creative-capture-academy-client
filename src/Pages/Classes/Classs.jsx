@@ -2,12 +2,16 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import useAdmin from '../../hooks/useAdmin';
 
 const Classs = ({ classs }) => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
+    const [isAdmin] = useAdmin();
 
     const { _id, instructorName, availableSeats, image, price, name } = classs || {}
+
+    const zeroSeat = availableSeats === 0;
 
     const handleAddToCart = classs => {
         if (user && user.email) {
@@ -50,7 +54,7 @@ const Classs = ({ classs }) => {
 
     return (
         <div>
-            <div className={`max-w-sm rounded overflow-hidden shadow-lg`}>
+            <div className={` max-w-sm rounded overflow-hidden shadow-lg`}>
                 <img className="w-full" src={image} alt="Sunset in the mountains" />
                 <div className="px-6 py-4">
                     <h2 className="card-title text-2xl">{name}</h2>
@@ -59,7 +63,7 @@ const Classs = ({ classs }) => {
                         <p>available Seats : {availableSeats}</p>
                         <p>Price : ${price}</p>
                     </div>
-                    <div  className="card-actions justify-end">
+                    <div className="card-actions justify-end">
                         <button onClick={() => handleAddToCart(classs)} className="custom-btn" >Select</button>
                     </div>
                 </div>

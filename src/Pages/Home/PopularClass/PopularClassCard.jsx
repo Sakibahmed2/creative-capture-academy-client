@@ -7,7 +7,7 @@ const PopularClassCard = ({ popular }) => {
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
             <img className="w-full" src={image} alt="Sunset in the mountains" />
             <div className="px-6 py-4">
-                <h2 className="card-title text-3xl">{name}</h2>
+                <h2 className="card-title text-2xl">{name}</h2>
                 <div className='mt-4 '>
                     <p>Instructorname : {instructorName}</p>
                     <p>available Seats : {availableSeats}</p>

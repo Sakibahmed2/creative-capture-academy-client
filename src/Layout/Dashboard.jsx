@@ -23,7 +23,7 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                     <Outlet />
                 </div>
-                <div className="drawer-side bg-emerald-600">
+                <div className="drawer-side bg-sky-500">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80  ">
                         {/* Sidebar content here */}
@@ -31,6 +31,16 @@ const Dashboard = () => {
                         <div className='text-white text-center mt-8 mb-8'>
                             <h1 className='md:text-4xl  font-extrabold font-abc md:top-0 top-6 relative custom-font '>C C A</h1>
                             <span className='relative top-0 right-15 opacity-0 md:opacity-100 '>Creative Capture Academy</span>
+                        </div>
+
+                        <div className='text-center mb-8'>
+                            <div className="avatar">
+                                <div className="w-16 rounded-full border-2 border-gray-500">
+                                    <img src={user?.photoURL} />
+                                </div>
+                            </div>
+                            <span className='block text-lg font-semibold'>{user?.displayName}</span>
+                            <span className='border-b border-black '>{user?.email}</span>
                         </div>
 
 

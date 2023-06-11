@@ -45,7 +45,7 @@ const Login = () => {
     return (
         <div>
             <div>
-                <div className="hero min-h-screen ">
+                <div className="hero min-h-screen pt-4">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
                             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -60,7 +60,7 @@ const Login = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input type={show ? "text" : "password"} {...register("password", { required: true })} name='password' placeholder="password" className="input input-bordered" />
-                                    <button onClick={handleShow} className='relative -top-9 left-32 font-semibold'>
+                                    <button onClick={handleShow} className='relative -top-[33px] left-20 text-sm md:left-32 font-semibold'>
                                         {show ? 'Hide' : 'Show'}
                                     </button>
                                     <label className="label">

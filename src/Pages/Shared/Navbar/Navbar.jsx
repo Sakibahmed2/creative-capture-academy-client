@@ -16,7 +16,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar bg-black shadow-lg bg-opacity-40 lg:text-white max-w-screen-xl mx-auto fixed z-10">
+        <div className="navbar bg-black shadow-lg bg-opacity-40 lg:text-white max-w-screen-xl mx-auto fixed z-10 h-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
@@ -28,7 +28,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div>
-                    <h1 className='md:text-4xl text-rose-500 font-extrabold font-abc md:top-0 top-6 relative custom-font'>C C A</h1>
+                    <h1 className='md:text-4xl text-sky-500 font-extrabold  md:top-0 top-6 relative custom-font'>C C A</h1>
                     <span className='relative top-0 right-15 opacity-0 md:opacity-100 '>Creative Capture Academy</span>
                 </div>
             </div>
@@ -51,7 +51,7 @@ const Navbar = () => {
 
                 {user ?
                     <button onClick={logOut} className='custom-btn ml-2'>Logout</button> :
-                    <Link to='/login' className='custom-btn ml-2'>Login</Link>
+                    <Link to='/login' className='custom-btn ml-2 '>Login</Link>
                 }
 
             </div>

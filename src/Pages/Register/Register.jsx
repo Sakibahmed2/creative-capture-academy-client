@@ -121,10 +121,11 @@ const Register = () => {
                                     <input type="password"  {...register("password", {
                                         required: true,
                                         minLength: 6,
-                                        // pattern: /^[A-Za-z]+$/ 
+                                        pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
                                     })} placeholder="password" className="input input-bordered" />
                                     {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                     {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                    {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase case and one special character.</p>}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
