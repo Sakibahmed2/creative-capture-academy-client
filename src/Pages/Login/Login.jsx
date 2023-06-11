@@ -74,7 +74,7 @@ const Login = () => {
                             </form>
                         </div>
                         <div className="text-center md:w-1/2 lg:text-left">
-                            <img src="https://img.freepik.com/free-vector/sign-page-abstract-concept-illustration_335657-3875.jpg?size=626&ext=jpg&ga=GA1.1.868909325.1665327837&semt=sph" alt="" />
+                            <img src="https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7853.jpg?size=626&ext=jpg&ga=GA1.2.868909325.1665327837&semt=sph" alt="" />
                         </div>
                     </div>
                 </div>

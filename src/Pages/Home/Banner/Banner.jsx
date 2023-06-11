@@ -10,19 +10,15 @@ const Banner = () => {
         <Carousel className='text-center'>
                 <div>
                     <img src={img1} />
-                    <p className="legend">Legend 1</p>
                 </div>
                 <div>
                     <img src={img2} />
-                    <p className="legend">Legend 1</p>
                 </div>
                 <div>
                     <img src={img3} />
-                    <p className="legend">Legend 1</p>
                 </div>
                 <div>
                     <img src={img4} />
-                    <p className="legend">Legend 1</p>
                 </div>
         </Carousel>
     );
