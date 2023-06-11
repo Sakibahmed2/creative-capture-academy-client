@@ -15,7 +15,7 @@ const Instructors = () => {
 
     return (
         <div>
-            <div className='grid md:grid-cols-3 gap-6 pt-20 w-10/12 mx-auto'>
+            <div className='grid mb-8 md:grid-cols-3 gap-6 pt-20 w-10/12 mx-auto'>
                 {
                     instructors?.map(instructor => <InstructorsCard
                         key={instructor?._id}

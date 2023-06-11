@@ -6,9 +6,12 @@ export default {
   ],
   theme: {
     extend: {},
-    fontFamily:{
+    fontFamily: {
       abc: ['Montserrat', 'sans-serif']
     }
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 }
