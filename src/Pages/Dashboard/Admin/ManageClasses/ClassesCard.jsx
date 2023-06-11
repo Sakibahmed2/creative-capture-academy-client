@@ -7,7 +7,7 @@ const ClassesCard = ({ classs }) => {
 
     const handleApprove = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/classes/permission/${id}`, {
+        fetch(`https://creative-capturea-academy.vercel.app/classes/permission/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

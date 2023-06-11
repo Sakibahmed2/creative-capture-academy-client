@@ -28,7 +28,7 @@ const MyClasses = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/carts/${id}`, {
+                fetch(`https://creative-capturea-academy.vercel.app/carts/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
